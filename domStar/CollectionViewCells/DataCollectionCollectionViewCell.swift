@@ -81,17 +81,16 @@ class DataCollectionCollectionViewCell: UICollectionViewCell, UITextFieldDelegat
     }
     
     @objc func setBirthdate() {
-//        if (!(self.birthDateTextField.text)!.isEmpty) {
-        DataManager.shared.user.birthdate = self.birthDateTextField.text
-        DataManager.shared.user.name = self.nameTextField.text
-        self.endEditing(true)
-        self.scrollToResults(Any.self)
-//        }
+        if (!(self.birthDateTextField.text)!.isEmpty) {
+            DataManager.shared.user.birthdate = self.birthDateTextField.text
+            DataManager.shared.user.name = self.nameTextField.text
+            self.endEditing(true)
+            self.scrollToResults(Any.self)
+        }
     }
 
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.nameTextField {
-//            print("hello")
             DataManager.shared.user.name = self.nameTextField.text
             self.birthDateTextField.becomeFirstResponder()
         } else if textField == self.birthDateTextField {
