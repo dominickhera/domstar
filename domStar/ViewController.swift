@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     let cellPercentWidth: CGFloat = 0.8
     var dataCellIdentifier = "DataCollectionCollectionViewCell"
     var greetingCellIdentifier = "GreetingsCollectionViewCell"
-    var reloadFlag = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
