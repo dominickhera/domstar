@@ -29,12 +29,10 @@ class DataManager {
     let scorpioEnd = "11-21"
     let sagittariusStart = "11-22"
     let sagittariusEnd = "12-21"
-    let capricornStart = "12-22"
-    let capricornEnd = "01-19"
     let aquariusStart = "01-20"
     let aquariusEnd = "02-18"
     let piscesStart = "02-19"
-    let piscesEnd = "03-21"
+    let piscesEnd = "03-20"
     
     
     private init() {}
@@ -67,8 +65,6 @@ class DataManager {
                 return "Scorpio"
             } else if((convertedBirthdate?.isBetween(dateFormatter.date(from: sagittariusStart)!, dateFormatter.date(from: sagittariusEnd)!))!) {
                 return "Sagittarius"
-            } else if((convertedBirthdate?.isBetween(dateFormatter.date(from: capricornStart)!, dateFormatter.date(from: capricornEnd)!))!) {
-                return "Capricorn"
             } else if((convertedBirthdate?.isBetween(dateFormatter.date(from: aquariusStart)!, dateFormatter.date(from: aquariusEnd)!))!) {
                 return "Aquarius"
             } else if((convertedBirthdate?.isBetween(dateFormatter.date(from: piscesStart)!, dateFormatter.date(from: piscesEnd)!))!) {
@@ -76,7 +72,7 @@ class DataManager {
             }
         }
         
-        return "test"
+        return "Capricorn"
     }
     
     func getGreetingString(name: String, birthdate: String ) -> String {
