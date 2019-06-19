@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol GreetingsDelegate {
-    func refreshGreeting()
-}
 class GreetingsCollectionViewCell: UICollectionViewCell {
-    var delegate: GreetingsDelegate?
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var greetingsLabel: UILabel!
     override func awakeFromNib() {
@@ -25,13 +21,6 @@ class GreetingsCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = 10
         self.layer.masksToBounds = false
         greetingsLabel.text = DataManager.shared.getGreetingString(name: DataManager.shared.user.name ?? "", birthdate: DataManager.shared.user.birthdate ?? "")
-        print("greetings init")
         // Initialization code
-    }
-}
-
-extension GreetingsCollectionViewCell {
-    @IBAction func updateString(_ sender: Any) {
-        delegate?.refreshGreeting()
     }
 }

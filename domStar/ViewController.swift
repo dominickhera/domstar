@@ -39,18 +39,14 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, DataCollectionDelegate, GreetingsDelegate {
-    func refreshGreeting() {
-        let tempIndexPath = IndexPath(row: 1, section: 0)
-                let tempCell = collectionView.dequeueReusableCell(withReuseIdentifier: greetingCellIdentifier, for: tempIndexPath) as! GreetingsCollectionViewCell
-                tempCell.greetingsLabel.text = DataManager.shared.getGreetingString(name: DataManager.shared.user.name ?? "", birthdate: DataManager.shared.user.birthdate ?? "")
-    }
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, DataCollectionDelegate {
     
     func showResults() {
         let tempIndexPath = IndexPath(row: 1, section: 0)
         self.collectionView.reloadData()
         self.collectionView.scrollToItem(at: tempIndexPath, at: .right, animated: true)
-        refreshGreeting()
+        let tempCell = collectionView.dequeueReusableCell(withReuseIdentifier: greetingCellIdentifier, for: tempIndexPath) as! GreetingsCollectionViewCell
+        tempCell.greetingsLabel.text = DataManager.shared.getGreetingString(name: DataManager.shared.user.name ?? "", birthdate: DataManager.shared.user.birthdate ?? "")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
